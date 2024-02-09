@@ -1,0 +1,329 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Young+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+/*Resetting default value*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Variables globales*/
+:root {
+  /*Primary Colors*/
+  --red-grenat: hsl(0, 100%, 25%);
+  --ancient-gold: hsl(43, 89%, 38%);
+  --White: hsl(0, 0%, 100%);
+  /*Font Family*/
+  --f-title: "Young Serif", serif;
+  --f-text: "Outfit", sans-serif;
+  /*Font Size*/
+  --fs-paragraph: 16px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--f-text);
+  font-size: var(--fs-paragraph);
+  color: white;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--f-title);
+}
+
+/* Mobile Version */
+/* Conteneur Principal */
+.main-container {
+  width: 350px;
+  min-height: 100dvh;
+}
+/* Rectangle Décoratif */
+.rectangle-container {
+  width: 350px;
+  min-height: 100dvh;
+  background-color: var(--red-grenat);
+  border: 5px double var(--ancient-gold);
+  position: relative;
+}
+/* Titre Principal */
+.main-title {
+  width: auto;
+  padding: 20px 20px 0 20px;
+  text-align: center;
+  font-size: large;
+}
+/* Coins décoratifs du rectangle */
+.corner {
+  width: 40px;
+  height: 40px;
+  border: 5px double var(--ancient-gold);
+  position: absolute;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+  border-top: none;
+  border-left: none;
+}
+.top-right {
+  top: 0;
+  right: 0;
+  border-top: none;
+  border-right: none;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom: none;
+  border-left: none;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom: none;
+  border-right: none;
+}
+
+/* Conteneur Gauche */
+.left-container {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40px;
+  border: 5px double var(--ancient-gold);
+}
+
+svg {
+  padding: 20px 0;
+  width: 100px;
+}
+
+.left-container-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.left-container-text p {
+  text-align: center;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+/* Conteneur droit */
+.right-container {
+  width: auto;
+  margin: 40px;
+  border: 5px double var(--ancient-gold);
+}
+
+.sub-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: auto;
+  height: 100dvh;
+  border: 9px double #b8860b;
+  padding: 25px;
+  position: relative;
+}
+.rectangle {
+  width: 100%;
+  height: 100dvh;
+  background-color: #800000; /* Couleur de fond du rectangle */
+  position: relative;
+  overflow: hidden;
+}
+
+.coin {
+  width: 80px;
+  height: 80px;
+  background-color: #800000; /* Couleur pour mieux visualiser les coins */
+  position: absolute;
+  border: 9px double #b8860b;
+  z-index: 1;
+}
+
+.dragon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 5px double#B8860B;
+  width: auto;
+}
+.dragon-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*Animations du Signe zodiacal*/
+/*Animations des yeux*/
+/* Cercle 1 (oeil gauche) */
+#left-eye {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: draw-left-eye 5s ease forwards;
+  animation-delay: 0s;
+}
+/* Cercle 1 (oeil droit) */
+#right-eye {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: draw-right-eye 5s ease forwards;
+  animation-delay: 1s;
+}
+
+/* Lignes du dessin */
+#line-1 {
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 1500;
+  animation: draw-line1 3s ease-in-out forwards;
+  animation-delay: 2s;
+}
+
+/* Ligne 2 */
+#line-2 {
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 1500;
+  animation: draw-line2 5s ease-out forwards;
+  animation-delay: 4s;
+}
+
+/* Ligne 3 */
+#line-3 {
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 1500;
+  animation: draw-line3 5s ease-out forwards;
+  animation-delay: 8s;
+}
+
+/* Ligne 4 */
+#line-4 {
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 1500;
+  animation: draw-line4 5s ease-out forwards;
+  animation-delay: 11s;
+}
+
+/* Ligne 5 */
+#line-5 {
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 1500;
+  animation: draw-line5 5s ease-out forwards;
+  animation-delay: 10s;
+}
+
+/* Animations Keyframes */
+/* Keyframes des yeux */
+@keyframes draw-left-eye {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-right-eye {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Keyframes lignes */
+@keyframes draw-line1 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-line2 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-line3 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-line4 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-line5 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-line1 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.tab-container {
+  width: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab {
+  padding: 10px;
+  background-color: #b8860b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid #800000;
+  flex: 1;
+  width: 100%;
+}
+
+.tab:hover {
+  background-color: #800000;
+}
+
+.tab-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid #800000;
+}
+
+
+.tab-content {
+  padding: 15px;
+  display: none;
+}
+
+.tab-content p{
+  text-align: initial;
+}
+.tab-content.active {
+  display: block;
+}
