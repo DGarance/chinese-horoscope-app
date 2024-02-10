@@ -107,12 +107,26 @@ h3 {
   border: 5px double var(--ancient-gold);
 }
 
+.corner.top-left-container {
+  display: none;
+}
+.corner.bottom-right-container {
+  display: none;
+}
+.left-title {
+  padding-top: 20px;
+}
+
+.dragon-animation {
+  margin-top: -50px;
+}
+
 svg {
-  padding: 20px 0;
-  width: 100px;
+  width: 200px;
 }
 
 .left-container-text {
+  margin-top: -40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -130,6 +144,12 @@ svg {
   width: auto;
   margin: 40px;
   border: 5px double var(--ancient-gold);
+}
+
+.img-icon{
+  width: 80px;
+  height: 80px;
+  padding-top: 10px;
 }
 
 /* Onglet  */
@@ -181,110 +201,6 @@ svg {
 
 .tab-content.active {
   display: block;
-}
-
-/*Animations du Signe zodiacal*/
-/*Animations des yeux*/
-/* Cercle 1 (oeil gauche) */
-#left-eye {
-  stroke-dasharray: 200;
-  stroke-dashoffset: 200;
-  animation: draw-left-eye 5s ease forwards;
-  animation-delay: 0s;
-}
-/* Cercle 1 (oeil droit) */
-#right-eye {
-  stroke-dasharray: 200;
-  stroke-dashoffset: 200;
-  animation: draw-right-eye 5s ease forwards;
-  animation-delay: 1s;
-}
-
-/* Lignes du dessin */
-#line-1 {
-  stroke-dasharray: 1500;
-  stroke-dashoffset: 1500;
-  animation: draw-line1 3s ease-in-out forwards;
-  animation-delay: 2s;
-}
-
-/* Ligne 2 */
-#line-2 {
-  stroke-dasharray: 1500;
-  stroke-dashoffset: 1500;
-  animation: draw-line2 5s ease-out forwards;
-  animation-delay: 4s;
-}
-
-/* Ligne 3 */
-#line-3 {
-  stroke-dasharray: 1500;
-  stroke-dashoffset: 1500;
-  animation: draw-line3 5s ease-out forwards;
-  animation-delay: 8s;
-}
-
-/* Ligne 4 */
-#line-4 {
-  stroke-dasharray: 1500;
-  stroke-dashoffset: 1500;
-  animation: draw-line4 5s ease-out forwards;
-  animation-delay: 11s;
-}
-
-/* Ligne 5 */
-#line-5 {
-  stroke-dasharray: 1500;
-  stroke-dashoffset: 1500;
-  animation: draw-line5 5s ease-out forwards;
-  animation-delay: 10s;
-}
-
-/* Animations Keyframes */
-/* Keyframes des yeux */
-@keyframes draw-left-eye {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes draw-right-eye {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-/* Keyframes lignes */
-@keyframes draw-line1 {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes draw-line2 {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes draw-line3 {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes draw-line4 {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes draw-line5 {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes draw-line1 {
-  to {
-    stroke-dashoffset: 0;
-  }
 }
 
 /* Tablet version */
@@ -355,10 +271,16 @@ svg {
     border-top: 12px solid var(--red-grenat);
     border-left: 12px solid var(--red-grenat);
   }
+  .corner.bottom-right-container {
+    display: none;
+  }
+
+  .dragon-animation {
+    margin-top: -50px;
+  }
 
   svg {
-    padding: 20px 0;
-    width: 150px;
+    width: 250px;
   }
 
   .left-title {
@@ -380,6 +302,11 @@ svg {
     width: auto;
     margin: 50px 50px 100px 50px;
     border: 5px double var(--ancient-gold);
+  }
+
+  .img-icon {
+    width: 150px;
+    height: 150px;
   }
 
   /* Onglet  */
@@ -420,25 +347,21 @@ svg {
     padding: 0 40px;
   }
 
-  .tab-content h3 {
-    /* margin: 10px 0 10px 0; */
-  }
-
   .tab-content {
     padding: 15px;
     display: none;
   }
-
   .tab-content p {
     padding-top: 10px;
-  }
-
-  .tab-content.active {
-    display: block;
   }
 }
 
 @media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   /* Conteneur Principal */
   .main-container {
     width: 1024px;
@@ -449,24 +372,21 @@ svg {
     width: 1024px;
     min-height: 100dvh;
     border: 10px double var(--ancient-gold);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas: "left mid1 right" "left mid2 right";
+    display: flex;
   }
   /* Titre Principal */
   .main-title {
-    width: 100%;
-    margin: 0 auto;
+    width: 0;
+    margin: 0 5px;
     font-size: larger;
-    grid-area: mid1;
-    align-self: flex-start;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
   }
 
   /* Coins décoratifs du rectangle */
   .corner {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border: 10px double var(--ancient-gold);
     position: absolute;
   }
@@ -501,27 +421,38 @@ svg {
   /* Conteneur Gauche */
   .left-container {
     width: 100%;
-    height: auto;
+    min-height: 100vh;
     border: 8px double var(--ancient-gold);
-    grid-area: left;
-    display: flex;
-    flex-direction: row;
+    margin-right: 0;
   }
 
-  .top-left-container {
-    top: 121px;
-    left: 50px;
+  .corner.top-left-container {
+    width: 50px;
+    height: 50px;
+    top: 50px;
+    left: 100px;
     border-top: 12px solid var(--red-grenat);
     border-left: 12px solid var(--red-grenat);
   }
+  .corner.bottom-right-container {
+    width: 50px;
+    height: 50px;
+    bottom: 50px;
+    right: 100px;
+    border-bottom: 12px solid var(--red-grenat);
+    border-right: 12px solid var(--red-grenat);
+  }
 
   svg {
-    padding: 20px 0;
-    width: 150px;
+    width: 250px;
+  }
+
+  .dragon-animation {
+    margin-top: -60px;
   }
 
   .left-title {
-    padding: 30px 0;
+    padding-top: 30px;
   }
 
   .left-container-text {
@@ -537,8 +468,16 @@ svg {
   /* Conteneur droit */
   .right-container {
     width: auto;
-    margin: 50px 50px 100px 50px;
-    border: 5px double var(--ancient-gold);
+    min-height: 100vh;
+    margin: 50px 100px 50px 0px;
+    border: 8px double var(--ancient-gold);
+    display: flex;
+    flex-direction: row;
+  }
+
+  .img-icon {
+    width: 100px;
+    margin-top: 20px;
   }
 
   /* Onglet  */
@@ -546,49 +485,225 @@ svg {
   .tab-container {
     width: auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
 
   .tabs {
     display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .tab {
-    padding: 10px;
-    background-color: var(--red-grenat);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    cursor: pointer;
-    user-select: none;
-    border: 1px solid var(--ancient-gold);
-    flex: 1;
-    width: 100%;
+    flex-direction: row;
   }
 
   .tab-contents {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border: 1px solid var(--ancient-gold);
-    padding: 0 40px;
-  }
-
-  .tab-content {
-    padding: 15px;
-    display: none;
-  }
-
-  .tab-content p {
-    padding-top: 10px;
-  }
-
-  .tab-content.active {
     display: block;
+    border: none;
+  }
+}
+
+/* Animations du Dragon */
+
+/* Lignes du dessin */
+#path1 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path1 2s ease-in-out forwards;
+  animation-delay: 1.5s;
+}
+#path2 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path2 5s ease-in-out forwards;
+}
+#path3 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path3 5s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+#path4 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path4 5s ease-in-out forwards;
+  animation-delay: 4s;
+}
+#path5 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path5 5s ease-in-out forwards;
+  animation-delay: 1s;
+}
+#path6 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path6 5s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+#path7 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path7 5s ease-in-out forwards;
+  animation-delay: 2.5s;
+}
+
+/* Ligne 2 */
+#path8 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path8 5s ease-out forwards;
+  animation-delay: 4s;
+}
+
+/* Ligne 3 */
+#path9 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path9 5s ease-out forwards;
+  animation-delay: 3s;
+}
+#path10 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path10 5s ease-out forwards;
+  animation-delay: 3s;
+}
+#path11 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path11 5s ease-out forwards;
+  animation-delay: 2s;
+}
+#path12 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path12 5s ease-out forwards;
+  animation-delay: 1.5s;
+}
+#path13 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path13 5s ease-out forwards;
+  animation-delay: 2s;
+}
+#path14 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path14 5s ease-out forwards;
+  animation-delay: 2.5s;
+}
+#path15 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path15 5s ease-out forwards;
+  animation-delay: 2.5s;
+}
+#path16 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path16 5s ease-out forwards;
+  animation-delay: 3.5s;
+}
+#path17 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-path17 5s ease-out forwards;
+  animation-delay: 3.5s;
+}
+
+/* Animations Keyframes */
+/* Keyframes des yeux */
+@keyframes draw-left-eye {
+  to {
+    stroke-dashoffset: 1;
+  }
+}
+@keyframes draw-right-eye {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Keyframes lignes */
+@keyframes draw-path1 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path2 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path3 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path4 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path5 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path6 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path7 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path8 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path9 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path10 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path11 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path12 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path13 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path14 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path15 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path16 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw-path17 {
+  to {
+    stroke-dashoffset: 0;
   }
 }
